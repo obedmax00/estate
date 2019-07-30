@@ -14,7 +14,7 @@ public class AgentDao {
     static final String USER = "admin";
     static final String PASS = "1234!";
 
-//    private Logger logger = LoggerFactory.getLogger((this.getClass()));
+    private Logger logger = LoggerFactory.getLogger((this.getClass()));
 
     public boolean updateAgent(String updateName, String value, String record) {
         Connection conn = null;
@@ -108,6 +108,7 @@ public class AgentDao {
     }
 
     public List<Agent> getAgents(){
+        logger.info("Enter the method getAgents");
         List<Agent> agents = new ArrayList();
         Connection conn = null;
         Statement stmt = null;
@@ -146,6 +147,7 @@ public class AgentDao {
             }
         }
         catch(Exception e){
+            logger.error(e.getMessage());
             e.printStackTrace();
         }
         finally{
@@ -158,7 +160,9 @@ public class AgentDao {
                 se.printStackTrace();
             }
         }
-//        logger.debug(String.format("printing agent object size %d"),agents.size());
+
+        logger.info("Exit the getAgents method");
+
 
         return agents;
     }

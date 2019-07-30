@@ -22,7 +22,7 @@ public class HouseDaoTest {
     public void getHouseTest() {
         HouseDao houseDao = new HouseDao();
         List<House> houses = houseDao.getHouses();
-        int expectedNumOfHouse = 5;
+        int expectedNumOfHouse = 4;
         for (House house : houses) {
             System.out.println(house);
         }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.ascending.estate.jdbc.CustomerDaoTest" time="0.034" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.ascending.estate.jdbc.CustomerDaoTest" time="0.12" tests="4" errors="0" skipped="0" failures="0">
   <properties>
     <property name="gopherProxySet" value="false"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -7,7 +7,7 @@
     <property name="java.specification.version" value="1.8"/>
     <property name="sun.cpu.isalist" value=""/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/Users/siyuou/IdeaProjects/housing_agents/target/test-classes:/Users/siyuou/IdeaProjects/housing_agents/target/classes:/Users/siyuou/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/siyuou/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/siyuou/.m2/repository/org/postgresql/postgresql/42.2.5/postgresql-42.2.5.jar:"/>
+    <property name="java.class.path" value="/Users/siyuou/IdeaProjects/housing_agents/target/test-classes:/Users/siyuou/IdeaProjects/housing_agents/target/classes:/Users/siyuou/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/Users/siyuou/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/siyuou/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/siyuou/.m2/repository/org/postgresql/postgresql/42.2.5/postgresql-42.2.5.jar:"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
@@ -17,9 +17,9 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_212.jdk/Contents/Home/jre/lib"/>
-    <property name="sun.java.command" value="/Users/siyuou/IdeaProjects/housing_agents/target/surefire/surefirebooter2232403887275107540.jar /Users/siyuou/IdeaProjects/housing_agents/target/surefire 2019-07-29T15-33-41_058-jvmRun1 surefire1049218331225703413tmp surefire_07556383368830172457tmp"/>
+    <property name="sun.java.command" value="/Users/siyuou/IdeaProjects/housing_agents/target/surefire/surefirebooter1885279579283253086.jar /Users/siyuou/IdeaProjects/housing_agents/target/surefire 2019-07-30T14-07-28_684-jvmRun1 surefire3977987728489233139tmp surefire_04190919436813592177tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
-    <property name="surefire.test.class.path" value="/Users/siyuou/IdeaProjects/housing_agents/target/test-classes:/Users/siyuou/IdeaProjects/housing_agents/target/classes:/Users/siyuou/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/siyuou/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/siyuou/.m2/repository/org/postgresql/postgresql/42.2.5/postgresql-42.2.5.jar:"/>
+    <property name="surefire.test.class.path" value="/Users/siyuou/IdeaProjects/housing_agents/target/test-classes:/Users/siyuou/IdeaProjects/housing_agents/target/classes:/Users/siyuou/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/Users/siyuou/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/siyuou/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/siyuou/.m2/repository/org/postgresql/postgresql/42.2.5/postgresql-42.2.5.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/Users/siyuou"/>
     <property name="user.language" value="en"/>
@@ -31,7 +31,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/Users/siyuou/IdeaProjects/housing_agents/target/surefire/surefirebooter2232403887275107540.jar"/>
+    <property name="surefire.real.class.path" value="/Users/siyuou/IdeaProjects/housing_agents/target/surefire/surefirebooter1885279579283253086.jar"/>
     <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_212.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_212.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_212.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_212.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_212.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_212.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_212.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_212.jdk/Contents/Home/jre/classes"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
@@ -61,5 +61,8 @@
     <property name="java.class.version" value="52.0"/>
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase name="getCustomerTest" classname="com.ascending.estate.jdbc.CustomerDaoTest" time="0.034"/>
+  <testcase name="getCustomerTest" classname="com.ascending.estate.jdbc.CustomerDaoTest" time="0.028"/>
+  <testcase name="setCustomerTest" classname="com.ascending.estate.jdbc.CustomerDaoTest" time="0.035"/>
+  <testcase name="deleteCustomerTest" classname="com.ascending.estate.jdbc.CustomerDaoTest" time="0.017"/>
+  <testcase name="updateCustomerTest" classname="com.ascending.estate.jdbc.CustomerDaoTest" time="0.038"/>
 </testsuite>

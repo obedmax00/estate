@@ -4,9 +4,9 @@ DROP TABLE IF EXISTS house CASCADE;
 DROP SEQUENCE IF EXISTS agent_id_seq;
 DROP SEQUENCE IF EXISTS customer_id_seq;
 DROP SEQUENCE IF EXISTS house_id_seq;
-CREATE SEQUENCE agent_id_seq START WITH 1;
-CREATE SEQUENCE customer_id_seq START WITH 1;
-CREATE SEQUENCE house_id_seq START WITH 1;
+CREATE SEQUENCE agent_id_seq START WITH 1 minvalue 1 maxvalue 30000 cycle;
+CREATE SEQUENCE customer_id_seq START WITH 1 minvalue 1 maxvalue 30000 cycle;
+CREATE SEQUENCE house_id_seq START WITH 1 minvalue 1 maxvalue 30000 cycle;
 
 CREATE TABLE agent (
    	id			bigint NOT NULL default nextval('agent_id_seq'),

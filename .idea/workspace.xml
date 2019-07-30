@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a69eccde-d32a-4c8c-878e-fc3ef93fb68b" name="Default Changelist" comment="" />
+    <list default="true" id="a69eccde-d32a-4c8c-878e-fc3ef93fb68b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ascending/estate/jdbc/AgentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ascending/estate/jdbc/AgentDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1__create_all_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1__create_all_tables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ascending/estate/jdbc/AgentDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ascending/estate/jdbc/AgentDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ascending/estate/jdbc/HouseDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ascending/estate/jdbc/HouseDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ascending/estate/jdbc/AgentDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ascending/estate/jdbc/AgentDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db/migration/V1__create_all_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/db/migration/V1__create_all_tables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ascending.estate.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ascending.estate.AppTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ascending.estate.jdbc.AgentDaoTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ascending.estate.jdbc.AgentDaoTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ascending.estate.jdbc.CustomerDaoTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ascending.estate.jdbc.CustomerDaoTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ascending.estate.jdbc.HouseDaoTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ascending.estate.jdbc.HouseDaoTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ascending.estate.jdbc.TestAll.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ascending.estate.jdbc.TestAll.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.ascending.estate.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.ascending.estate.AppTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.ascending.estate.jdbc.AgentDaoTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.ascending.estate.jdbc.AgentDaoTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.ascending.estate.jdbc.CustomerDaoTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.ascending.estate.jdbc.CustomerDaoTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.ascending.estate.jdbc.HouseDaoTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.ascending.estate.jdbc.HouseDaoTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.ascending.estate.jdbc.TestAll.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.ascending.estate.jdbc.TestAll.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ascending/estate/jdbc/AgentDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ascending/estate/jdbc/AgentDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ascending/estate/jdbc/HouseDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ascending/estate/jdbc/HouseDaoTest.class" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +55,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -42,6 +68,7 @@
   <component name="ProjectId" id="1OTM20wUh02NR8ee6Wj3iqQzXlG" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -169,10 +196,22 @@
       <workItem from="1564066853047" duration="8345000" />
       <workItem from="1564079779700" duration="1027000" />
       <workItem from="1564424549142" duration="6495000" />
+      <workItem from="1564508816432" duration="3529000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

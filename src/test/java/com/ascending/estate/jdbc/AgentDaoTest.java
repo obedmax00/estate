@@ -40,7 +40,7 @@ public class AgentDaoTest {
     @Test
     public void updateAgentTest(){
         System.out.println("updating agent");
-        boolean i = agentDao.updateAgent("address","118 fairfax va","peterhan");
+        boolean i = agentDao.updateAgent("address","118 fairfax va","perterhan");
         Assert.assertEquals(true,i);
     }
 
