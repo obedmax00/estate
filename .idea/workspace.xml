@@ -2,28 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a69eccde-d32a-4c8c-878e-fc3ef93fb68b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ascending/estate/jdbc/AgentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ascending/estate/jdbc/AgentDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1__create_all_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1__create_all_tables.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ascending/estate/jdbc/AgentDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ascending/estate/jdbc/AgentDaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ascending/estate/jdbc/HouseDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ascending/estate/jdbc/HouseDaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ascending/estate/jdbc/AgentDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ascending/estate/jdbc/AgentDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db/migration/V1__create_all_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/db/migration/V1__create_all_tables.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ascending.estate.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ascending.estate.AppTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ascending.estate.jdbc.AgentDaoTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ascending.estate.jdbc.AgentDaoTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ascending.estate.jdbc.CustomerDaoTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ascending.estate.jdbc.CustomerDaoTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ascending.estate.jdbc.HouseDaoTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ascending.estate.jdbc.HouseDaoTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ascending.estate.jdbc.TestAll.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ascending.estate.jdbc.TestAll.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.ascending.estate.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.ascending.estate.AppTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.ascending.estate.jdbc.AgentDaoTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.ascending.estate.jdbc.AgentDaoTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.ascending.estate.jdbc.CustomerDaoTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.ascending.estate.jdbc.CustomerDaoTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.ascending.estate.jdbc.HouseDaoTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.ascending.estate.jdbc.HouseDaoTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.ascending.estate.jdbc.TestAll.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.ascending.estate.jdbc.TestAll.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ascending/estate/jdbc/AgentDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ascending/estate/jdbc/AgentDaoTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ascending/estate/jdbc/HouseDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ascending/estate/jdbc/HouseDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ascending/estate/model/Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ascending/estate/model/Agent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ascending/estate/jdbc/DemoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ascending/estate/jdbc/DemoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ascending/estate/model/Agent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ascending/estate/model/Agent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ascending/estate/jdbc/DemoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ascending/estate/jdbc/DemoTest.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,20 +71,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestAll">
-    <configuration name="HouseDao" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ascending.estate.jdbc.HouseDao" />
-      <module name="housing_agents" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ascending.estate.jdbc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.DemoTest">
     <configuration name="AgentDaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="housing_agents" />
       <extension name="coverage">
@@ -127,6 +97,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.ascending.estate.jdbc" />
       <option name="MAIN_CLASS_NAME" value="com.ascending.estate.jdbc.CustomerDaoTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DemoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="housing_agents" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ascending.estate.jdbc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ascending.estate.jdbc" />
+      <option name="MAIN_CLASS_NAME" value="com.ascending.estate.jdbc.DemoTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -166,19 +151,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.HouseDao" />
       <item itemvalue="JUnit.AgentDaoTest" />
       <item itemvalue="JUnit.CustomerDaoTest" />
       <item itemvalue="JUnit.HouseDaoTest" />
       <item itemvalue="JUnit.TestAll" />
+      <item itemvalue="JUnit.DemoTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DemoTest" />
         <item itemvalue="JUnit.TestAll" />
         <item itemvalue="JUnit.HouseDaoTest" />
         <item itemvalue="JUnit.AgentDaoTest" />
         <item itemvalue="JUnit.CustomerDaoTest" />
-        <item itemvalue="Application.HouseDao" />
       </list>
     </recent_temporary>
   </component>
@@ -196,7 +181,7 @@
       <workItem from="1564066853047" duration="8345000" />
       <workItem from="1564079779700" duration="1027000" />
       <workItem from="1564424549142" duration="6495000" />
-      <workItem from="1564508816432" duration="3529000" />
+      <workItem from="1564508816432" duration="5238000" />
     </task>
     <servers />
   </component>

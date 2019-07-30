@@ -28,11 +28,13 @@ public class DemoTest {
     }
     @Test
     public void test1() {
-        logger.trace("########## Test1 - Trace: test1 is done. ##########");
-        logger.debug("########## Test1 - Debug: test1 is done. ##########");
-        logger.info("########## Test1 - Info: test1 is done. ##########");
-        logger.warn("########## Test1 - Warn: test1 is done. ##########");
-        logger.error("########## Test1 - Error: test1 is done. ##########");
+        String str1 = new String("ABC");
+        String str2 = new String("ABC");
+        String str3 = "ABC";
+        String str4 = "ABC";
+
+        Assert.assertEquals(str3,str4);
+        Assert.assertSame(str3,str4);
     }
     @Test
     public void test2() {

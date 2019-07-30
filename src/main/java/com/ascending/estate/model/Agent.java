@@ -1,5 +1,7 @@
 package com.ascending.estate.model;
 
+import java.util.Objects;
+
 public class Agent {
     private long id;
     private String name;
@@ -75,5 +77,20 @@ public class Agent {
 
     public String getAddress() {
         return this.address;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Agent agent = (Agent) o;
+        return id == agent.id &&
+                name.equals(agent.name) &&
+                phone_number.equals(agent.phone_number);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, phone_number);
     }
 }
