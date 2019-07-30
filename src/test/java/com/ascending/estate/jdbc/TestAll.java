@@ -5,9 +5,9 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        AgentDaoTest.class
-//        CustomerDaoTest.class,
-//        HouseDaoTest.class
+        AgentDaoTest.class,
+        CustomerDaoTest.class,
+        HouseDaoTest.class
 })
 public class TestAll {
 }

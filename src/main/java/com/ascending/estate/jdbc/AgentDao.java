@@ -14,9 +14,9 @@ public class AgentDao {
     static final String USER = "admin";
     static final String PASS = "1234!";
 
-    private Logger logger = LoggerFactory.getLogger((this.getClass()));
+//    private Logger logger = LoggerFactory.getLogger((this.getClass()));
 
-    public void updateAgent(String updateName, String value, String record) {
+    public boolean updateAgent(String updateName, String value, String record) {
         Connection conn = null;
         Statement stmt = null;
         try {
@@ -27,8 +27,12 @@ public class AgentDao {
             stmt = conn.createStatement();
             String sql = "update agent SET " + updateName + " = '" + value + "'" +
                     "where name = '" + record + "'";
-            stmt.execute(sql);
-            System.out.println("Updated a record.");
+            int i = stmt.executeUpdate(sql);
+
+            if(i == 1){
+                System.out.println("Updated a record.");
+                return true;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -39,9 +43,10 @@ public class AgentDao {
                 se.printStackTrace();
             }
         }
+        return false;
     }
 
-    public void deleteAgent(String name) {
+    public boolean deleteAgent(String name) {
         Connection conn = null;
         Statement stmt = null;
         try {
@@ -51,8 +56,11 @@ public class AgentDao {
             System.out.println("Creating statement...");
             stmt = conn.createStatement();
             String sql = "DELETE FROM agent WHERE name = '" + name + "'";
-            stmt.execute(sql);
-            System.out.println("Deleted a record.");
+            int i = stmt.executeUpdate(sql);
+            if (i == 1){
+                System.out.println("Deleted a record.");
+                return true;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -63,9 +71,10 @@ public class AgentDao {
                 se.printStackTrace();
             }
         }
+        return false;
     }
 
-    public void setAgent(String name, String last_name, String first_name, String phone_number,
+    public boolean setAgent(String name, String last_name, String first_name, String phone_number,
                           String password, String address, String email) {
         Connection conn = null;
         Statement stmt = null;
@@ -80,8 +89,11 @@ public class AgentDao {
                     "('" + name + "','" + last_name + "','"+first_name +
                     "','" + email + "','" + phone_number +"','" +
                     password + "','" + address + "')";
-            stmt.execute(sql);
-            System.out.println("Created new record.");
+            int i = stmt.executeUpdate(sql);
+            if(i==1){
+                System.out.println("Created new record.");
+                return true;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -92,6 +104,7 @@ public class AgentDao {
                 se.printStackTrace();
             }
         }
+        return false;
     }
 
     public List<Agent> getAgents(){
@@ -145,7 +158,7 @@ public class AgentDao {
                 se.printStackTrace();
             }
         }
-        logger.debug(String.format("printing agent object size %d"),agents.size());
+//        logger.debug(String.format("printing agent object size %d"),agents.size());
 
         return agents;
     }

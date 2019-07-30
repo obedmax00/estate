@@ -21,10 +21,34 @@ public class AgentDaoTest {
     @Test
     public void getAgentTest() {
         List<Agent> agents = agentDao.getAgents();
-        int expectedNumOfAgent = 3;
+        int expectedNumOfAgent = 4;
         for (Agent agent : agents) {
             System.out.println(agent);
         }
         Assert.assertEquals(expectedNumOfAgent, agents.size());
+    }
+
+    @Test
+    public void setAgentTest(){
+        System.out.println("setting agent");
+
+        boolean i = agentDao.setAgent("mattcots","cots","matt","2345968585",
+                "1234","119 fairfax va","mattcots@gmail.com");
+        Assert.assertEquals(true,i);
+    }
+
+    @Test
+    public void updateAgentTest(){
+        System.out.println("updating agent");
+        boolean i = agentDao.updateAgent("address","118 fairfax va","peterhan");
+        Assert.assertEquals(true,i);
+    }
+
+    @Test
+    public void deleteAgentTest(){
+        System.out.println("deleting agent");
+
+        boolean i = agentDao.deleteAgent("mattcots");
+        Assert.assertEquals(true,i);
     }
 }

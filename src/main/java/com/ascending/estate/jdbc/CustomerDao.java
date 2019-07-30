@@ -11,7 +11,7 @@ public class CustomerDao {
     static final String USER = "admin";
     static final String PASS = "1234!";
 
-    public void updateCustomer(String updateName, String value, String record) {
+    public boolean updateCustomer(String updateName, String value, String record) {
         Connection conn = null;
         Statement stmt = null;
         try {
@@ -22,8 +22,11 @@ public class CustomerDao {
             stmt = conn.createStatement();
             String sql = "update customer SET " + updateName + " = '" + value + "'" +
                     "where name = '" + record + "'";
-            stmt.execute(sql);
-            System.out.println("Updated a record.");
+            int i = stmt.executeUpdate(sql);
+            if(i ==1) {
+                System.out.println("Updated a record.");
+                return true;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -34,9 +37,10 @@ public class CustomerDao {
                 se.printStackTrace();
             }
         }
+        return false;
     }
 
-    public void deleteCustomer(String name) {
+    public boolean deleteCustomer(String name) {
         Connection conn = null;
         Statement stmt = null;
         try {
@@ -46,8 +50,11 @@ public class CustomerDao {
             System.out.println("Creating statement...");
             stmt = conn.createStatement();
             String sql = "DELETE FROM customer WHERE name = '" + name + "'";
-            stmt.execute(sql);
-            System.out.println("Deleted a record.");
+            int i = stmt.executeUpdate(sql);
+            if(i==1) {
+                System.out.println("Deleted a record.");
+                return true;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -58,9 +65,10 @@ public class CustomerDao {
                 se.printStackTrace();
             }
         }
+        return false;
     }
 
-    public void setCustomer(String name, String last_name, String first_name, String phone_number,
+    public boolean setCustomer(String name, String last_name, String first_name, String phone_number,
                           int salary, String address, String email, long agent_id) {
         Connection conn = null;
         Statement stmt = null;
@@ -75,8 +83,11 @@ public class CustomerDao {
                     "('" + name + "','" + last_name + "','"+first_name +
                     "','" + email + "','" + phone_number +"','" +
                     salary + "','" + address + "','" + agent_id +"')";
-            stmt.execute(sql);
-            System.out.println("Created new record.");
+            int i = stmt.executeUpdate(sql);
+            if (i==1) {
+                System.out.println("Created new record.");
+                return true;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -87,6 +98,7 @@ public class CustomerDao {
                 se.printStackTrace();
             }
         }
+        return false;
     }
 
     public List<Customer> getCustomers(){

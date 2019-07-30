@@ -12,7 +12,7 @@ public class HouseDao {
     static final String USER = "admin";
     static final String PASS = "1234!";
 
-    public void updateHouse(String updateName, String value, String address) {
+    public boolean updateHouse(String updateName, String value, String address) {
         Connection conn = null;
         Statement stmt = null;
         try {
@@ -23,8 +23,11 @@ public class HouseDao {
             stmt = conn.createStatement();
             String sql = "update house SET " + updateName + " = '" + value + "'" +
                     "where address = '" + address + "'";
-            stmt.execute(sql);
-            System.out.println("Updated a record.");
+            int i = stmt.executeUpdate(sql);
+            if(i==1) {
+                System.out.println("Updated a record.");
+                return true;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -35,9 +38,10 @@ public class HouseDao {
                 se.printStackTrace();
             }
         }
+        return false;
     }
 
-    public void deleteHouse(String address) {
+    public boolean deleteHouse(String address) {
         Connection conn = null;
         Statement stmt = null;
         try {
@@ -47,8 +51,11 @@ public class HouseDao {
             System.out.println("Creating statement...");
             stmt = conn.createStatement();
             String sql = "DELETE FROM house WHERE address = '" + address + "'";
-            stmt.execute(sql);
-            System.out.println("Deleted a record.");
+            int i = stmt.executeUpdate(sql);
+            if (i ==1) {
+                System.out.println("Deleted a record.");
+                return true;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -59,9 +66,10 @@ public class HouseDao {
                 se.printStackTrace();
             }
         }
+        return false;
     }
 
-    public void setHouse(String address, long price, int year,
+    public boolean setHouse(String address, long price, int year,
                          String last_bought, String last_sold,
                          long tax, long customer_id) {
         Connection conn = null;
@@ -77,8 +85,11 @@ public class HouseDao {
                     "('" + address + "','" + price + "','"+year +
                     "','" + last_bought + "','" + last_sold +"','" +
                     tax + "','" + customer_id +"')";
-            stmt.execute(sql);
-            System.out.println("Created new record.");
+            int i = stmt.executeUpdate(sql);
+            if(i==1) {
+                System.out.println("Created new record.");
+                return true;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -89,6 +100,7 @@ public class HouseDao {
                 se.printStackTrace();
             }
         }
+        return false;
     }
 
 
