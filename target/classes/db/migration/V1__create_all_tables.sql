@@ -4,12 +4,12 @@ DROP TABLE IF EXISTS house CASCADE;
 DROP SEQUENCE IF EXISTS agent_id_seq;
 DROP SEQUENCE IF EXISTS customer_id_seq;
 DROP SEQUENCE IF EXISTS house_id_seq;
-CREATE SEQUENCE agent_id_seq START WITH 1 minvalue 1 maxvalue 30000 cycle;
-CREATE SEQUENCE customer_id_seq START WITH 1 minvalue 1 maxvalue 30000 cycle;
-CREATE SEQUENCE house_id_seq START WITH 1 minvalue 1 maxvalue 30000 cycle;
+-- CREATE SEQUENCE agent_id_seq START WITH 1 minvalue 1 maxvalue 30000 cycle;
+-- CREATE SEQUENCE customer_id_seq START WITH 1 minvalue 1 maxvalue 30000 cycle;
+-- CREATE SEQUENCE house_id_seq START WITH 1 minvalue 1 maxvalue 30000 cycle;
 
 CREATE TABLE agent (
-   	id			bigint NOT NULL default nextval('agent_id_seq'),
+   	id			bigserial not null,
 	name		varchar(50) not null unique,
    	last_name	VARCHAR(30) not null,
 	first_name	varchar(30) not null,
@@ -20,7 +20,7 @@ CREATE TABLE agent (
 	constraint agent_pk primary key (id)
 );
 CREATE TABLE customer (
-   id              bigint NOT NULL default nextval('customer_id_seq'),
+   id              bigserial not null,
    name 			varchar(50) not null unique,
    first_name      VARCHAR(30) not null,
    last_name       VARCHAR(30) not null,
@@ -36,7 +36,7 @@ CREATE TABLE customer (
 );
 
 CREATE TABLE house (
-   id          	bigint NOT NULL default nextval('house_id_seq'),
+   id          	bigserial not null,
    address		varchar(150) not null unique,
 	price		numeric(15,2),
 	year		integer,

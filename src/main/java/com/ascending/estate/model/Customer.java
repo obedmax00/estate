@@ -1,14 +1,28 @@
 package com.ascending.estate.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "customer")
 public class Customer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "first_name")
     private String first_name;
+    @Column(name = "last_name")
     private String last_name;
+    @Column(name = "email")
     private String email;
+    @Column(name = "address")
     private String address;
+    @Column(name = "salary")
     private long salary;
+    @Column(name = "phone_number")
     private String phone_number;
+    @Column(name = "agent_id")
     private long agent_id;
 
     public String toString(){

@@ -1,15 +1,29 @@
 package com.ascending.estate.model;
 
 
+import com.sun.javafx.beans.IDProperty;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "house")
 public class House {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(name = "address")
     private String address;
+    @Column(name = "price")
     private long price;
+    @Column(name = "year")
     private int year;
+    @Column(name = "last_bought")
     private String last_bought;
+    @Column(name = "last_sold")
     private String last_sold;
+    @Column(name = "tax")
     private long tax;
+    @Column(name = "customer_id")
     private long customer_id;
 
     public String toString(){
