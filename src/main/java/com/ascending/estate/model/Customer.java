@@ -3,7 +3,7 @@ package com.ascending.estate.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "customer")
+@Table(name = "customers")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,19 +11,33 @@ public class Customer {
     @Column(name = "name")
     private String name;
     @Column(name = "first_name")
-    private String first_name;
+    private String firstName;
     @Column(name = "last_name")
-    private String last_name;
+    private String lastName;
     @Column(name = "email")
     private String email;
     @Column(name = "address")
     private String address;
     @Column(name = "salary")
-    private long salary;
+    private double salary;
     @Column(name = "phone_number")
-    private String phone_number;
+    private String phoneNumber;
     @Column(name = "agent_id")
-    private long agent_id;
+    private long agentId;
+
+    public Customer(){}
+
+    public Customer(String name, String firstName, String lastName, String email,
+                    String address, double salary, String phoneNumber, long agentId){
+        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.address = address;
+        this.salary = salary;
+        this.phoneNumber = phoneNumber;
+        this.agentId = agentId;
+    }
 
     public String toString(){
         return getName();
@@ -45,20 +59,20 @@ public class Customer {
         return this.name;
     }
 
-    public void setFirst_name(String frist_name){
-        this.first_name = first_name;
+    public void setFirstName(String first_name){
+        this.firstName = first_name;
     }
 
-    public String getFirst_name(){
-        return this.first_name;
+    public String getFirstName(){
+        return this.firstName;
     }
 
-    public void setLast_name(String last_name){
-        this.last_name = last_name;
+    public void setLastName(String last_name){
+        this.lastName = last_name;
     }
 
-    public String getLast_name(){
-        return this.last_name;
+    public String getLastName(){
+        return this.lastName;
     }
 
     public void setEmail(String email){
@@ -77,27 +91,27 @@ public class Customer {
         return this.address;
     }
 
-    public void setSalary(long salary){
+    public void setSalary(double salary){
         this.salary = salary;
     }
 
-    public long getSalary(){
+    public double getSalary(){
         return this.salary;
     }
 
-    public void setPhone_number(String phone_number){
-        this.phone_number = phone_number;
+    public void setPhoneNumber(String phone_number){
+        this.phoneNumber = phone_number;
     }
 
-    public String getPhone_number(){
-        return this.phone_number;
+    public String getPhoneNumber(){
+        return this.phoneNumber;
     }
 
-    public void setAgent_id(long agent_id){
-        this.agent_id = agent_id;
+    public void setAgentId(long agent_id){
+        this.agentId = agent_id;
     }
 
-    public long getAgent_id(){
-        return agent_id;
+    public long getAgentId(){
+        return agentId;
     }
 }

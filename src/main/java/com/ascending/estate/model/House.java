@@ -4,9 +4,10 @@ package com.ascending.estate.model;
 import com.sun.javafx.beans.IDProperty;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
-@Table(name = "house")
+@Table(name = "houses")
 public class House {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,21 +15,37 @@ public class House {
     @Column(name = "address")
     private String address;
     @Column(name = "price")
-    private long price;
+    private double price;
     @Column(name = "year")
     private int year;
     @Column(name = "last_bought")
-    private String last_bought;
+    private Date lastBought;
     @Column(name = "last_sold")
-    private String last_sold;
+    private Date lastSold;
     @Column(name = "tax")
-    private long tax;
+    private double tax;
     @Column(name = "customer_id")
-    private long customer_id;
+    private long customerId;
+
+
+    public House(){}
+
+    
+    public House(String address, double price, int year, Date lastBought,
+                 Date lastSold, double tax, long customerId){
+        this.address = address;
+        this.price = price;
+        this.year = year;
+        this.lastBought = lastBought;
+        this.lastSold = lastSold;
+        this.tax = tax;
+        this.customerId = customerId;
+    }
 
     public String toString(){
         return getAddress();
     }
+
     public void setId(long id){
         this.id = id;
     }
@@ -45,11 +62,11 @@ public class House {
         return this.address;
     }
 
-    public void setPrice(long price){
+    public void setPrice(double price){
         this.price = price;
     }
 
-    public long getPrice(){
+    public double getPrice(){
     return this.price;
     }
 
@@ -61,36 +78,36 @@ public class House {
         return this.year;
     }
 
-    public void setLast_bought(String last_bought){
-        this.last_bought = last_bought;
+    public void setLastBought(Date last_bought){
+        this.lastBought = last_bought;
     }
 
-    public String getLast_bought(){
-        return this.last_bought;
+    public Date getLastBought(){
+        return this.lastBought;
     }
 
-    public void setLast_sold(String last_sold){
-        this.last_sold = last_sold;
+    public void setLastSold(Date last_sold){
+        this.lastSold = last_sold;
     }
 
-    public String getLast_sold(){
-        return this.last_sold;
+    public Date getLastSold(){
+        return this.lastSold;
     }
 
-    public void setTax(long tax){
+    public void setTax(double tax){
         this.tax = tax;
     }
 
-    public long getTax(){
+    public double getTax(){
         return this.tax;
     }
 
-    public void setCustomer_id(long customer_id){
-        this.customer_id = customer_id;
+    public void setCustomerId(long customer_id){
+        this.customerId = customer_id;
     }
 
-    public long getCustomer_id(){
-        return this.customer_id;
+    public long getCustomerId(){
+        return this.customerId;
     }
 
 

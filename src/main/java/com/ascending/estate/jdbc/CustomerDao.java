@@ -123,20 +123,20 @@ public class CustomerDao {
                 String email = rs.getString("email");
                 String phone_number = rs.getString("phone_number");
                 String address = rs.getString("address");
-                long salary = rs.getLong("salary");
+                double salary = rs.getDouble("salary");
                 long agent_id = rs.getLong("agent_id");
 
 
                 Customer customer = new Customer();
                 customer.setId(id);
-                customer.setLast_name(last_name);
-                customer.setFirst_name(first_name);
+                customer.setLastName(last_name);
+                customer.setFirstName(first_name);
                 customer.setEmail(email);
-                customer.setPhone_number(phone_number);
+                customer.setPhoneNumber(phone_number);
                 customer.setAddress(address);
                 customer.setName(name);
                 customer.setSalary(salary);
-                customer.setAgent_id(agent_id);
+                customer.setAgentId(agent_id);
 
 
                 customers.add(customer);

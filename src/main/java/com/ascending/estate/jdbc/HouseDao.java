@@ -5,6 +5,7 @@ import com.ascending.estate.model.House;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class HouseDao {
@@ -121,11 +122,11 @@ public class HouseDao {
             while(rs.next()){
                 long id = rs.getLong("id");
                 String address = rs.getString("address");
-                long price = rs.getLong("price");
+                double price = rs.getDouble("price");
                 int year = rs.getInt("year");
-                String last_bought = rs.getString("last_bought");
-                String last_sold = rs.getString("last_sold");
-                long tax = rs.getLong("tax");
+                Date last_bought = rs.getDate("last_bought");
+                Date last_sold = rs.getDate("last_sold");
+                double tax = rs.getDouble("tax");
                 long customer_id = rs.getLong("customer_id");
 
 
@@ -134,10 +135,10 @@ public class HouseDao {
                 house.setAddress(address);
                 house.setPrice(price);
                 house.setYear(year);
-                house.setLast_bought(last_bought);
-                house.setLast_sold(last_sold);
+                house.setLastBought(last_bought);
+                house.setLastSold(last_sold);
                 house.setTax(tax);
-                house.setCustomer_id(customer_id);
+                house.setCustomerId(customer_id);
 
                 houses.add(house);
 

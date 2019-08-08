@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "agent")
+@Table(name = "agents")
 public class Agent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,17 +14,30 @@ public class Agent {
     @Column(name = "name")
     private String name;
     @Column(name = "last_name")
-    private String last_name;
+    private String lastName;
     @Column(name = "first_name")
-    private String first_name;
+    private String firstName;
     @Column(name = "email")
     private String email;
     @Column(name = "phone_number")
-    private String phone_number;
+    private String phoneNumber;
     @Column(name = "password")
     private String password;
     @Column(name = "address")
     private String address;
+
+    public Agent(){}
+
+    public Agent(String name,String lastName, String firstName, String email,
+                 String phoneNumber, String password, String address){
+        this.name = name;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
+        this.address = address;
+    }
 
     public String toString(){
         return getName();
@@ -45,20 +58,20 @@ public class Agent {
         return this.name;
     }
 
-    public void setLast_name(String last_name){
-        this.last_name = last_name;
+    public void setLastName(String last_name){
+        this.lastName = last_name;
     }
 
-    public String getLast_name(){
-        return this.last_name;
+    public String getLastName(){
+        return this.lastName;
     }
 
-    public void setFirst_name(String first_name){
-        this.first_name = first_name;
+    public void setFirstName(String first_name){
+        this.firstName = first_name;
     }
 
-    public String getFirst_name(){
-        return this.first_name;
+    public String getFirstName(){
+        return this.firstName;
     }
 
     public void setEmail(String email){
@@ -69,12 +82,12 @@ public class Agent {
         return this.email;
     }
 
-    public void setPhone_number(String phone_number){
-        this.phone_number = phone_number;
+    public void setPhoneNumber(String phone_number){
+        this.phoneNumber = phone_number;
     }
 
-    public String getPhone_number(){
-        return phone_number;
+    public String getPhoneNumber(){
+        return phoneNumber;
     }
 
     public void setPassword(String password){
@@ -100,11 +113,11 @@ public class Agent {
         Agent agent = (Agent) o;
         return id == agent.id &&
                 name.equals(agent.name) &&
-                phone_number.equals(agent.phone_number);
+                phoneNumber.equals(agent.phoneNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, phone_number);
+        return Objects.hash(id, name, phoneNumber);
     }
 }

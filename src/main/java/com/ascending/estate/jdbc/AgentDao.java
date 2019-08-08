@@ -134,10 +134,10 @@ public class AgentDao {
 
                 Agent agent = new Agent();
                 agent.setId(id);
-                agent.setLast_name(last_name);
-                agent.setFirst_name(first_name);
+                agent.setLastName(last_name);
+                agent.setFirstName(first_name);
                 agent.setEmail(email);
-                agent.setPhone_number(phone_number);
+                agent.setPhoneNumber(phone_number);
                 agent.setAddress(address);
                 agent.setPassword(password);
                 agent.setName(name);
