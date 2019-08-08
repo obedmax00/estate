@@ -1,13 +1,11 @@
 package com.ascending.estate.repository;
 
 import com.ascending.estate.model.Agent;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
+import org.junit.runners.MethodSorters;
 
 import java.util.List;
-
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AgentDaoImplTest {
     private AgentDao agentDao;
 
@@ -32,11 +30,11 @@ public class AgentDaoImplTest {
     }
     @Test
     public void updateAgent(){
-        Agent agent = new Agent("scottlee","lee","scott","scottlee@gmail.com","3334442234",
-                "1234","1955 lee lynchburg va");
+        Agent agent = agentDao.getAgentByName("scottlee");
+        agent.setAddress("1955 lee lynchburg va");
         agentDao.update(agent);
         Agent agent1 = agentDao.getAgentByName("scottlee");
-        Assert.assertEquals(agent.getAddress(),agent1.getAddress());
+        Assert.assertEquals(agent1.getAddress(),agent.getAddress());
     }
     @Test
     public void deleteAgent(){
@@ -47,7 +45,9 @@ public class AgentDaoImplTest {
     @Test
     public void getAgents(){
         List<Agent> agents = agentDao.getAgents();
-        Assert.assertEquals(4,agents.size());
+        agents.forEach(agent -> System.out.println(agent));
+
+        Assert.assertEquals(3,agents.size());
     }
 
     @Test

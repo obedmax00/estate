@@ -1,6 +1,6 @@
 package com.ascending.estate.repository;
 
-import com.ascending.estate.model.Agent;
+import com.ascending.estate.model.Customer;
 import com.ascending.estate.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -10,33 +10,33 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-public class AgentDaoImpl implements AgentDao {
+public class CustomerDaoImpl implements CustomerDao{
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     @Override
-    public boolean save(Agent agent) {
+    public boolean save(Customer customer) {
         Transaction transaction = null;
         boolean isSuccess = true;
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-            session.save(agent);
+            session.save(customer);
             transaction.commit();
         } catch (Exception e) {
             isSuccess = false;
             if (transaction != null) transaction.rollback();
             logger.error(e.getMessage());
         }
-        if (isSuccess) logger.debug(String.format("The agent %s was saved", agent.toString()));
+        if (isSuccess) logger.debug(String.format("The customer %s was saved", customer.toString()));
         return isSuccess;
     }
     @Override
-    public boolean update(Agent agent){
+    public boolean update(Customer customer){
         Transaction transaction = null;
         boolean isSuccess = true;
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()){
             transaction = session.beginTransaction();
-            session.saveOrUpdate(agent);
+            session.saveOrUpdate(customer);
             transaction.commit();
         }
         catch(Exception e){
@@ -44,18 +44,18 @@ public class AgentDaoImpl implements AgentDao {
             if (transaction != null) transaction.rollback();
             logger.error(e.getMessage());
         }
-        if (isSuccess) logger.debug(String.format("The Agent %s was updated",agent.toString()));
+        if (isSuccess) logger.debug(String.format("The customer %s was updated",customer.toString()));
         return isSuccess;
     }
     @Override
-    public boolean delete(String agentName){
-        String hql = "DELETE Agent where name = :agentName1";
+    public boolean delete(String customerName){
+        String hql = "DELETE Customer where name = :customerName1";
         int deletedCount = 0;
         Transaction transaction = null;
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()){
-            Query<Agent> query = session.createQuery(hql);
-            query.setParameter("agentName1", agentName);
+            Query<Customer> query = session.createQuery(hql);
+            query.setParameter("customerName1", customerName);
 
             transaction = session.beginTransaction();
             deletedCount = query.executeUpdate();
@@ -65,15 +65,15 @@ public class AgentDaoImpl implements AgentDao {
             if (transaction != null) transaction.rollback();
             logger.error(e.getMessage());
         }
-        logger.debug(String.format("The agent %s was deleted", agentName));
+        logger.debug(String.format("The customer %s was deleted", customerName));
         return deletedCount >= 1 ? true : false;
     }
 
     @Override
-    public List<Agent> getAgents() {
-        String hql = "FROM Agent";
+    public List<Customer> getCustomers() {
+        String hql = "FROM Customer";
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
-            Query<Agent> query = session.createQuery(hql);
+            Query<Customer> query = session.createQuery(hql);
             return query.list();
         }
         catch(Exception e){
@@ -83,23 +83,22 @@ public class AgentDaoImpl implements AgentDao {
     }
 
     @Override
-    public Agent getAgentByName(String agentName) {
+    public Customer getCustomerByName(String agentName) {
         if (agentName == null) return null;
 
-        String hql = "FROM Agent as A where lower(A.name) = :name";
+        String hql = "FROM Customer as A where lower(A.name) = :name";
 
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
-            Query<Agent> query = session.createQuery(hql);
+            Query<Customer> query = session.createQuery(hql);
             query.setParameter("name",agentName.toLowerCase());
 
-            Agent agent = query.uniqueResult();
-            logger.debug(agent.toString());
-            return agent;
+            Customer customer = query.uniqueResult();
+            logger.debug(customer.toString());
+            return customer;
         }
         catch (Exception e){
             logger.error(e.getMessage());
         }
         return null;
     }
-    //departments.forEach(dept -> System.out.println(dept));
 }

@@ -1,6 +1,6 @@
 package com.ascending.estate.repository;
 
-import com.ascending.estate.model.Agent;
+import com.ascending.estate.model.House;
 import com.ascending.estate.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -10,33 +10,32 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-public class AgentDaoImpl implements AgentDao {
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+public class HouseDaoImpl implements HouseDao{
+    Logger logger = LoggerFactory.getLogger(this.getClass());
     @Override
-    public boolean save(Agent agent) {
+    public boolean save(House house){
         Transaction transaction = null;
         boolean isSuccess = true;
-
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
             transaction = session.beginTransaction();
-            session.save(agent);
+            session.save(house);
             transaction.commit();
-        } catch (Exception e) {
+        }catch(Exception e){
             isSuccess = false;
-            if (transaction != null) transaction.rollback();
+            if(transaction != null) transaction.rollback();
             logger.error(e.getMessage());
         }
-        if (isSuccess) logger.debug(String.format("The agent %s was saved", agent.toString()));
+        if (isSuccess) logger.debug(String.format("The house %s was saved", house.toString()));
         return isSuccess;
     }
     @Override
-    public boolean update(Agent agent){
+    public boolean update(House house){
         Transaction transaction = null;
         boolean isSuccess = true;
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()){
             transaction = session.beginTransaction();
-            session.saveOrUpdate(agent);
+            session.saveOrUpdate(house);
             transaction.commit();
         }
         catch(Exception e){
@@ -44,18 +43,18 @@ public class AgentDaoImpl implements AgentDao {
             if (transaction != null) transaction.rollback();
             logger.error(e.getMessage());
         }
-        if (isSuccess) logger.debug(String.format("The Agent %s was updated",agent.toString()));
+        if (isSuccess) logger.debug(String.format("The house %s was updated",house.toString()));
         return isSuccess;
     }
     @Override
-    public boolean delete(String agentName){
-        String hql = "DELETE Agent where name = :agentName1";
+    public boolean delete(String houseAddress){
+        String hql = "DELETE House where address = :houseName1";
         int deletedCount = 0;
         Transaction transaction = null;
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()){
-            Query<Agent> query = session.createQuery(hql);
-            query.setParameter("agentName1", agentName);
+            Query<House> query = session.createQuery(hql);
+            query.setParameter("houseName1", houseAddress);
 
             transaction = session.beginTransaction();
             deletedCount = query.executeUpdate();
@@ -65,15 +64,15 @@ public class AgentDaoImpl implements AgentDao {
             if (transaction != null) transaction.rollback();
             logger.error(e.getMessage());
         }
-        logger.debug(String.format("The agent %s was deleted", agentName));
+        logger.debug(String.format("The agent %s was deleted", houseAddress));
         return deletedCount >= 1 ? true : false;
     }
 
     @Override
-    public List<Agent> getAgents() {
-        String hql = "FROM Agent";
+    public List<House> getHouses() {
+        String hql = "FROM House";
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
-            Query<Agent> query = session.createQuery(hql);
+            Query<House> query = session.createQuery(hql);
             return query.list();
         }
         catch(Exception e){
@@ -83,23 +82,22 @@ public class AgentDaoImpl implements AgentDao {
     }
 
     @Override
-    public Agent getAgentByName(String agentName) {
-        if (agentName == null) return null;
+    public House getHouseByName(String houseAddress) {
+        if (houseAddress == null) return null;
 
-        String hql = "FROM Agent as A where lower(A.name) = :name";
+        String hql = "FROM House as A where lower(A.address) = :name";
 
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
-            Query<Agent> query = session.createQuery(hql);
-            query.setParameter("name",agentName.toLowerCase());
+            Query<House> query = session.createQuery(hql);
+            query.setParameter("name",houseAddress.toLowerCase());
 
-            Agent agent = query.uniqueResult();
-            logger.debug(agent.toString());
-            return agent;
+            House house = query.uniqueResult();
+            logger.debug(house.toString());
+            return house;
         }
         catch (Exception e){
             logger.error(e.getMessage());
         }
         return null;
     }
-    //departments.forEach(dept -> System.out.println(dept));
 }
