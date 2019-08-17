@@ -3,7 +3,9 @@ package com.ascending.estate.model;
 import com.sun.javafx.beans.IDProperty;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "agents")
@@ -25,6 +27,8 @@ public class Agent {
     private String password;
     @Column(name = "address")
     private String address;
+    @OneToMany(mappedBy = "agent", fetch = FetchType.LAZY)
+    private Set<Customer> customers;
 
     public Agent(){}
 
@@ -119,5 +123,13 @@ public class Agent {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, phoneNumber);
+    }
+
+    public Set<Customer> getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(Set<Customer> customers) {
+        this.customers = customers;
     }
 }

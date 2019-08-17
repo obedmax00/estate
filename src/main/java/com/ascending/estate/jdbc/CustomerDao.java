@@ -124,7 +124,7 @@ public class CustomerDao {
                 String phone_number = rs.getString("phone_number");
                 String address = rs.getString("address");
                 double salary = rs.getDouble("salary");
-                long agent_id = rs.getLong("agent_id");
+//                long agent_id = rs.getLong("agent_id");
 
 
                 Customer customer = new Customer();
@@ -136,7 +136,7 @@ public class CustomerDao {
                 customer.setAddress(address);
                 customer.setName(name);
                 customer.setSalary(salary);
-                customer.setAgentId(agent_id);
+//                customer.setAgentId(agent_id);
 
 
                 customers.add(customer);

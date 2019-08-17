@@ -86,7 +86,7 @@ public class AgentDaoImpl implements AgentDao {
     public Agent getAgentByName(String agentName) {
         if (agentName == null) return null;
 
-        String hql = "FROM Agent as A where lower(A.name) = :name";
+        String hql = "FROM Agent as A left join fetch A.customers where lower(A.name) = :name";
 
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
             Query<Agent> query = session.createQuery(hql);

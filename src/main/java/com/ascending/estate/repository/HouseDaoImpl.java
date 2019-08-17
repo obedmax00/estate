@@ -64,7 +64,7 @@ public class HouseDaoImpl implements HouseDao{
             if (transaction != null) transaction.rollback();
             logger.error(e.getMessage());
         }
-        logger.debug(String.format("The agent %s was deleted", houseAddress));
+        logger.debug(String.format("The house %s was deleted", houseAddress));
         return deletedCount >= 1 ? true : false;
     }
 
@@ -85,7 +85,7 @@ public class HouseDaoImpl implements HouseDao{
     public House getHouseByName(String houseAddress) {
         if (houseAddress == null) return null;
 
-        String hql = "FROM House as A where lower(A.address) = :name";
+        String hql = "FROM House as H left join fetch H.customers where lower(H.address) = :name";
 
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
             Query<House> query = session.createQuery(hql);

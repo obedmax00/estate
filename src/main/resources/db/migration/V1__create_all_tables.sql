@@ -28,7 +28,7 @@ CREATE TABLE customers (
    address         VARCHAR(150),
    salary          numeric(7,2),
    phone_number    varchar(50),
-   agent_id   bigint NOT NULL,
+   agent_id   bigint,
 	constraint customer_pk primary key (id),
 	constraint customer_agent_fk foreign key (agent_id)
 	references agents(id)
@@ -43,7 +43,7 @@ CREATE TABLE houses (
 	last_bought	date,
 	last_sold	date,
 	tax			numeric(10,2),
-	customer_id bigint not null,
+	customer_id bigint,
 	constraint house_pk primary key (id),
 	constraint house_customer_fk foreign key (customer_id)
 	references customers(id)

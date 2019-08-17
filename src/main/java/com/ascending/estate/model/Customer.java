@@ -1,6 +1,7 @@
 package com.ascending.estate.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "customers")
@@ -22,13 +23,31 @@ public class Customer {
     private double salary;
     @Column(name = "phone_number")
     private String phoneNumber;
-    @Column(name = "agent_id")
-    private long agentId;
+
+//    delete this property
+//    @Column(name = "agent_id")
+//    private long agentId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "agent_id")
+    private Agent agent;
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "customers_houses",
+            joinColumns = { @JoinColumn(name = "customer_id") },
+            inverseJoinColumns = { @JoinColumn(name = "house_id") }
+    )
+    private Set<House> houses;
+
+
+
+
 
     public Customer(){}
 
     public Customer(String name, String firstName, String lastName, String email,
-                    String address, double salary, String phoneNumber, long agentId){
+                    String address, double salary, String phoneNumber){
         this.name = name;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -36,7 +55,7 @@ public class Customer {
         this.address = address;
         this.salary = salary;
         this.phoneNumber = phoneNumber;
-        this.agentId = agentId;
+//        this.agentId = agentId;
     }
 
     public String toString(){
@@ -45,6 +64,22 @@ public class Customer {
 
     public void setId(long id){
         this.id = id;
+    }
+
+    public Agent getAgent() {
+        return agent;
+    }
+
+    public void setAgent(Agent agent) {
+        this.agent = agent;
+    }
+
+    public Set<House> getHouses() {
+        return houses;
+    }
+
+    public void setHouses(Set<House> houses) {
+        this.houses = houses;
     }
 
     public long getId(){
@@ -107,11 +142,11 @@ public class Customer {
         return this.phoneNumber;
     }
 
-    public void setAgentId(long agent_id){
-        this.agentId = agent_id;
-    }
-
-    public long getAgentId(){
-        return agentId;
-    }
+//    public void setAgentId(long agent_id){
+//        this.agentId = agent_id;
+//    }
+//
+//    public long getAgentId(){
+//        return agentId;
+//    }
 }

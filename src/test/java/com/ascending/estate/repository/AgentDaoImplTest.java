@@ -1,10 +1,14 @@
 package com.ascending.estate.repository;
 
 import com.ascending.estate.model.Agent;
+import com.ascending.estate.model.Customer;
 import org.junit.*;
 import org.junit.runners.MethodSorters;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AgentDaoImplTest {
     private AgentDao agentDao;
@@ -22,6 +26,7 @@ public class AgentDaoImplTest {
     public void saveAgent(){
         Agent agent = new Agent("scottlee","lee","scott","scottlee@gmail.com","3334442234",
                 "1234","195 lee lynchburg va");
+
         agentDao.save(agent);
 
         Agent agent1 = agentDao.getAgentByName("scottlee");
@@ -53,6 +58,7 @@ public class AgentDaoImplTest {
     @Test
     public void getAgentByName(){
         Agent agent = agentDao.getAgentByName("lukedj");
+        System.out.println(agent.getCustomers());
         Assert.assertEquals(1,agent.getId());
     }
 }

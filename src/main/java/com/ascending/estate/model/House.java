@@ -4,7 +4,8 @@ package com.ascending.estate.model;
 import com.sun.javafx.beans.IDProperty;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "houses")
@@ -24,22 +25,33 @@ public class House {
     private Date lastSold;
     @Column(name = "tax")
     private double tax;
-    @Column(name = "customer_id")
-    private long customerId;
+
+    //    @Column(name = "customer_id")
+//    private long customerId;
+    @ManyToMany(mappedBy = "houses")
+    Set<Customer> customers;
+
+
+    public Set<Customer> getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(Set<Customer> customers) {
+        this.customers = customers;
+    }
 
 
     public House(){}
 
     
     public House(String address, double price, int year, Date lastBought,
-                 Date lastSold, double tax, long customerId){
+                 Date lastSold, double tax){
         this.address = address;
         this.price = price;
         this.year = year;
         this.lastBought = lastBought;
         this.lastSold = lastSold;
         this.tax = tax;
-        this.customerId = customerId;
     }
 
     public String toString(){
@@ -102,13 +114,13 @@ public class House {
         return this.tax;
     }
 
-    public void setCustomerId(long customer_id){
-        this.customerId = customer_id;
-    }
-
-    public long getCustomerId(){
-        return this.customerId;
-    }
+//    public void setCustomerId(long customer_id){
+//        this.customerId = customer_id;
+//    }
+//
+//    public long getCustomerId(){
+//        return this.customerId;
+//    }
 
 
 }

@@ -1,12 +1,16 @@
 package com.ascending.estate.repository;
+import com.ascending.estate.model.Customer;
 import com.ascending.estate.model.House;
 import org.junit.*;
 import org.junit.runners.MethodSorters;
 
-import java.util.Date;
+import java.sql.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class HouseDaoImplTest {
+public class  HouseDaoImplTest {
     private HouseDao houseDao;
 
     @Before
@@ -23,7 +27,7 @@ public class HouseDaoImplTest {
         Date lastBought = new Date(1995,2,10);
         Date lastSold = new Date(2008,2,20);
         House house = new House("1933 dj lynchburg va",199592,1966, lastBought,lastSold,
-                1234.12,1);
+                1234.12);
         houseDao.save(house);
 
         House house1 = houseDao.getHouseByName("1933 dj lynchburg va");
@@ -45,7 +49,7 @@ public class HouseDaoImplTest {
     }
 
     @Test
-    public void getAgents(){
+    public void getHouses(){
         List<House> houses = houseDao.getHouses();
         houses.forEach(house -> System.out.println(house));
 
@@ -53,8 +57,9 @@ public class HouseDaoImplTest {
     }
 
     @Test
-    public void getAgentByName(){
+    public void getHouseByName(){
         House house = houseDao.getHouseByName("332 lynchburg va");
+        house.getCustomers().forEach(customer -> System.out.println(customer));
         Assert.assertEquals(1,house.getId());
     }
 }
