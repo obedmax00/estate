@@ -1,6 +1,8 @@
 package com.ascending.estate.repository;
 
+import com.ascending.estate.model.Agent;
 import com.ascending.estate.model.Customer;
+import com.ascending.estate.model.House;
 import com.ascending.estate.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -9,7 +11,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 @Repository
 public class CustomerDaoImpl implements CustomerDao{
     private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -72,7 +77,7 @@ public class CustomerDaoImpl implements CustomerDao{
 
     @Override
     public List<Customer> getCustomers() {
-        String hql = "FROM Customer";
+        String hql = "FROM Customer C left join fetch C.houses";
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
             Query<Customer> query = session.createQuery(hql);
             return query.list();
@@ -102,4 +107,67 @@ public class CustomerDaoImpl implements CustomerDao{
         }
         return null;
     }
+
+    @Override
+    public boolean updateAgentRelation(String customerName, String agentName){
+        Transaction transaction = null;
+        boolean isSuccess = true;
+        String hqlCustomer = "FROM Customer C where lower(C.name) = :customerName";
+        String hqlAgent = "FROM Agent A where lower(A.name) = :agentName";
+        try (Session session = HibernateUtil.getSessionFactory().openSession()){
+            Query<Agent> queryA = session.createQuery(hqlAgent);
+            queryA.setParameter("agentName",agentName.toLowerCase());
+            Query<Customer> queryC = session.createQuery(hqlCustomer);
+            queryC.setParameter("customerName",customerName.toLowerCase());
+
+            Customer customer = queryC.uniqueResult();
+            Agent agent = queryA.uniqueResult();
+
+            customer.setAgent(agent);
+
+            transaction = session.beginTransaction();
+            session.saveOrUpdate(customer);
+            transaction.commit();
+        }
+        catch(Exception e){
+            isSuccess = false;
+            if (transaction != null) transaction.rollback();
+            logger.error(e.getMessage());
+        }
+        if (isSuccess) logger.debug("The customer and agent relation was updated");
+        return isSuccess;
+    }
+
+    @Override
+    public boolean updateHouseRelation(String customerName, String address){
+        Transaction transaction = null;
+        boolean isSuccess = true;
+        String hqlCustomer = "FROM Customer C left join fetch C.houses where lower(C.name) = :CustomerName";
+        String hqlHouse = "FROM House H where lower(H.address) = :HouseName";
+        try (Session session = HibernateUtil.getSessionFactory().openSession()){
+            Query<House> queryH = session.createQuery(hqlHouse);
+            queryH.setParameter("HouseName",address.toLowerCase());
+            Query<Customer> queryC = session.createQuery(hqlCustomer);
+            queryC.setParameter("CustomerName",customerName.toLowerCase());
+
+            Customer customer = queryC.uniqueResult();
+            House house = queryH.uniqueResult();
+            Set<House> houses = new HashSet<>();
+            houses.add(house);
+            houses.addAll(customer.getHouses());
+            customer.setHouses(houses);
+
+            transaction = session.beginTransaction();
+            session.saveOrUpdate(customer);
+            transaction.commit();
+        }
+        catch(Exception e){
+            isSuccess = false;
+            if (transaction != null) transaction.rollback();
+            logger.error(e.getMessage());
+        }
+        if (isSuccess) logger.debug("The customer and agent relation was updated");
+        return isSuccess;
+    }
+
 }

@@ -34,10 +34,7 @@ public class CustomerServiceTest {
     public void saveCustomer(){
         Customer customer = new Customer("aaronpaul","aaron","paul","aaronpaul@gmail.com","92 e street fairfax va",
                 1234.12,"3468654432");
-        customer.setAgent(agentService.getAgentByName("lukedj"));
-        Set<House> houses = new HashSet<>();
-        houses.add(houseService.getHouseByName("1995 falls church va"));
-        customer.setHouses(houses);
+
         customerService.save(customer);
 
         Customer customer1 = customerService.getCustomerByName("aaronpaul");
@@ -71,5 +68,17 @@ public class CustomerServiceTest {
         Customer customer = customerService.getCustomerByName("amyjames");
         customer.getHouses().forEach(house -> System.out.println(house));
         Assert.assertEquals(1,customer.getId());
+    }
+
+    @Test
+    public void updateAgentRelation(){
+        boolean isSuccess = customerService.updateAgentRelation("aaronpaul","jamescook");
+        Assert.assertEquals(true,isSuccess);
+    }
+    @Test
+    public void updateHouseRelation(){
+        boolean isSuccess = customerService.updateHouseRelation("aaronpaul", "322 fairfax va");
+        Assert.assertEquals(true,isSuccess);
+
     }
 }

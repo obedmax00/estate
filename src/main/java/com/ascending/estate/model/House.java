@@ -1,6 +1,7 @@
 package com.ascending.estate.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.javafx.beans.IDProperty;
 
 import javax.persistence.*;
@@ -28,6 +29,7 @@ public class House {
 
     //    @Column(name = "customer_id")
 //    private long customerId;
+    @JsonIgnore
     @ManyToMany(mappedBy = "houses")
     Set<Customer> customers;
 

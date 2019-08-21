@@ -72,12 +72,14 @@ public class AgentDaoImpl implements AgentDao {
 
     @Override
     public List<Agent> getAgents() {
-        String hql = "FROM Agent";
+        String hql = "FROM Agent as A left join fetch A.customers as c left join fetch c.houses";
+//        String hql = "FROM Agent";
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
             Query<Agent> query = session.createQuery(hql);
             return query.list();
         }
         catch(Exception e){
+            e.printStackTrace();
             logger.error(e.getMessage());
         }
         return null;
@@ -87,7 +89,7 @@ public class AgentDaoImpl implements AgentDao {
     public Agent getAgentByName(String agentName) {
         if (agentName == null) return null;
 
-        String hql = "FROM Agent as A left join fetch A.customers where lower(A.name) = :name";
+        String hql = "FROM Agent as A left join fetch A.customers as C left join fetch C.houses where lower(A.name) = :name";
 
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
             Query<Agent> query = session.createQuery(hql);

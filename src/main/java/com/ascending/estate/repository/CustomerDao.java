@@ -10,4 +10,6 @@ public interface CustomerDao {
     boolean delete(String customerName);
     List<Customer> getCustomers();
     Customer getCustomerByName(String agentName);
+    boolean updateAgentRelation(String customerName, String agentName);
+    boolean updateHouseRelation(String customerName, String address);
 }

@@ -1,5 +1,6 @@
 package com.ascending.estate.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.javafx.beans.IDProperty;
 
 import javax.persistence.*;
@@ -27,6 +28,7 @@ public class Agent {
     private String password;
     @Column(name = "address")
     private String address;
+//    @JsonIgnore
     @OneToMany(mappedBy = "agent", fetch = FetchType.LAZY)
     private Set<Customer> customers;
 
@@ -44,7 +46,9 @@ public class Agent {
     }
 
     public String toString(){
-        return getName();
+        return "Id: " +getId()+ "Name: " +getName() + "LName: " + getLastName() + "FName: "
+                + getFirstName() + "Address: " + getAddress()+ "Email: " + getEmail()
+                + "PhoneNumber: " + getPhoneNumber() + "Password: " +getPassword();
     }
     public void setId(long id){
         this.id = id;

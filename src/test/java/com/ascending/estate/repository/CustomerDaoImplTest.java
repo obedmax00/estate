@@ -26,12 +26,6 @@ public class CustomerDaoImplTest {
     public void saveCustomer(){
         Customer customer = new Customer("aaronpaul","aaron","paul","aaronpaul@gmail.com","92 e street fairfax va",
                 1234.12,"3468654432");
-        AgentDao agentDao = new AgentDaoImpl();
-        customer.setAgent(agentDao.getAgentByName("lukedj"));
-        HouseDao houseDao = new HouseDaoImpl();
-        Set<House> houses = new HashSet<>();
-        houses.add(houseDao.getHouseByName("1995 falls church va"));
-        customer.setHouses(houses);
         customerDao.save(customer);
 
         Customer customer1 = customerDao.getCustomerByName("aaronpaul");
@@ -65,5 +59,17 @@ public class CustomerDaoImplTest {
         Customer customer = customerDao.getCustomerByName("amyjames");
         customer.getHouses().forEach(house -> System.out.println(house));
         Assert.assertEquals(1,customer.getId());
+    }
+
+    @Test
+    public void updateAgentRelation(){
+        boolean isSuccess = customerDao.updateAgentRelation("aaronpaul","jamescook");
+        Assert.assertEquals(true,isSuccess);
+    }
+    @Test
+    public void updateHouseRelation(){
+        boolean isSuccess = customerDao.updateHouseRelation("aaronpaul", "322 fairfax va");
+        Assert.assertEquals(true,isSuccess);
+
     }
 }

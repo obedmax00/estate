@@ -1,5 +1,7 @@
 package com.ascending.estate.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -27,12 +29,13 @@ public class Customer {
 //    delete this property
 //    @Column(name = "agent_id")
 //    private long agentId;
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "agent_id")
     private Agent agent;
 
-
-    @ManyToMany
+//    @JsonIgnore
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "customers_houses",
             joinColumns = { @JoinColumn(name = "customer_id") },
