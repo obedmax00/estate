@@ -85,6 +85,17 @@ public class CustomerController {
         return msg;
     }
 
+    @RequestMapping(value="/remove-agent-relation/{customerName}",
+            method = RequestMethod.PUT, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public String removeAgentRelation(@PathVariable String customerName){
+        boolean isSuccess = customerService.removeAgentRelation(customerName);
+        String msg = "the customer house relation is removed";
+        if(isSuccess ==false){
+            msg = "the customer house relation is not removed";
+        }
+        return msg;
+    }
+
 
 
 }

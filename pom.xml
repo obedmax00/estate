@@ -114,9 +114,9 @@
           <version>${flyway.version}</version>
           <configuration>
             <driver>org.postgresql.Driver</driver>
-            <url>jdbc:postgresql://${db_url}</url>
-            <user>${db_username}</user>
-            <password>${db_password}</password>
+            <url>jdbc:postgresql://${database.url}</url>
+            <user>${database.user}</user>
+            <password>${database.password}</password>
             <schemas>
               <schema>public</schema>
             </schemas>

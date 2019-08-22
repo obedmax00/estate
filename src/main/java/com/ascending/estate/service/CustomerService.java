@@ -23,4 +23,8 @@ public class CustomerService {
     public boolean updateHouseRelation(String customerName, String address){
         return customerDao.updateHouseRelation(customerName,address);
     }
+    public boolean removeAgentRelation(String customerName){
+        return customerDao.removeAgentRelation(customerName);
+    }
+
 }

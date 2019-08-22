@@ -72,4 +72,9 @@ public class CustomerDaoImplTest {
         Assert.assertEquals(true,isSuccess);
 
     }
+    @Test
+    public void withdrawAgentRelation(){
+        boolean isSuccess = customerDao.removeAgentRelation("aaronpaul");
+        Assert.assertEquals(true,isSuccess);
+    }
 }

@@ -170,4 +170,34 @@ public class CustomerDaoImpl implements CustomerDao{
         return isSuccess;
     }
 
+    @Override
+    public boolean removeAgentRelation(String customerName){
+        Transaction transaction = null;
+        String hql = "FROM Customer C where lower(C.name) = :CustomerName";
+        boolean isSuccess = true;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()){
+            Query<Customer> query = session.createQuery(hql);
+            query.setParameter("CustomerName",customerName.toLowerCase());
+
+            Customer customer = query.uniqueResult();
+            customer.setAgent(null);
+
+            transaction = session.beginTransaction();
+            session.saveOrUpdate(customer);
+            transaction.commit();
+        }
+        catch(Exception e){
+            isSuccess = false;
+            if (transaction != null) transaction.rollback();
+            logger.error(e.getMessage());
+        }
+        if(getCustomerByName(customerName).getAgent() != null) {
+            isSuccess =false;
+        }
+        if (isSuccess){
+            logger.debug("The customer and agent relation was removed");
+        }
+        return isSuccess;
+    }
+
 }

@@ -45,6 +45,7 @@ public class CustomerServiceTest {
     public void updateCustomer(){
         Customer customer = customerService.getCustomerByName("aaronpaul");
         customer.setAddress("925 e street fairfax va");
+        customer.setAgent(null);
         customerService.update(customer);
         Customer customer1 = customerService.getCustomerByName("aaronpaul");
         Assert.assertEquals(customer.getAddress(),customer1.getAddress());
@@ -80,5 +81,11 @@ public class CustomerServiceTest {
         boolean isSuccess = customerService.updateHouseRelation("aaronpaul", "322 fairfax va");
         Assert.assertEquals(true,isSuccess);
 
+    }
+
+    @Test
+    public void withdrawAgentRelation(){
+        boolean isSuccess = customerService.removeAgentRelation("aaronpaul");
+        Assert.assertEquals(true,isSuccess);
     }
 }
