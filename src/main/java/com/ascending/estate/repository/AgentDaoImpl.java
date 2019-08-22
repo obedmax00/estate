@@ -2,6 +2,7 @@ package com.ascending.estate.repository;
 
 import com.ascending.estate.model.Agent;
 import com.ascending.estate.util.HibernateUtil;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -72,11 +73,12 @@ public class AgentDaoImpl implements AgentDao {
 
     @Override
     public List<Agent> getAgents() {
-        String hql = "FROM Agent as A left join fetch A.customers as c left join fetch c.houses";
-//        String hql = "FROM Agent";
+//        String hql = "FROM Agent as A left join fetch A.customers as c left join fetch c.houses";
+        String hql = "FROM Agent";
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
             Query<Agent> query = session.createQuery(hql);
-            return query.list();
+            return query.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+//            return query.list();
         }
         catch(Exception e){
             e.printStackTrace();

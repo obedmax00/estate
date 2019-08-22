@@ -1,5 +1,6 @@
 package com.ascending.estate.controller;
 
+import com.ascending.estate.model.Agent;
 import com.ascending.estate.model.Customer;
 import com.ascending.estate.service.CustomerService;
 import org.slf4j.Logger;
@@ -94,6 +95,12 @@ public class CustomerController {
             msg = "the customer house relation is not removed";
         }
         return msg;
+    }
+
+    @RequestMapping(value="/view-agent/{customerName}",
+            method = RequestMethod.GET, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public Agent viewAgent(@PathVariable String customerName){
+        return customerService.viewAgent(customerName);
     }
 
 

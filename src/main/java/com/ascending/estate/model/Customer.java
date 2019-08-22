@@ -1,6 +1,7 @@
 package com.ascending.estate.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -35,6 +36,7 @@ public class Customer {
     private Agent agent;
 
 //    @JsonIgnore
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "customers_houses",
@@ -78,6 +80,12 @@ public class Customer {
     }
 
     public Set<House> getHouses() {
+        try{
+            int size = houses.size();
+        }
+        catch(Exception e){
+            return null;
+        }
         return houses;
     }
 

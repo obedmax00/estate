@@ -1,11 +1,13 @@
 package com.ascending.estate.service;
 
+import com.ascending.estate.model.Agent;
 import com.ascending.estate.model.Customer;
 import com.ascending.estate.repository.CustomerDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class CustomerService {
@@ -25,6 +27,9 @@ public class CustomerService {
     }
     public boolean removeAgentRelation(String customerName){
         return customerDao.removeAgentRelation(customerName);
+    }
+    public Agent viewAgent(String customerName){
+        return customerDao.getCustomerByName(customerName).getAgent();
     }
 
 }

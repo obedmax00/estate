@@ -30,7 +30,7 @@ public class House {
     //    @Column(name = "customer_id")
 //    private long customerId;
     @JsonIgnore
-    @ManyToMany(mappedBy = "houses")
+    @ManyToMany(mappedBy = "houses",fetch = FetchType.LAZY)
     Set<Customer> customers;
 
 

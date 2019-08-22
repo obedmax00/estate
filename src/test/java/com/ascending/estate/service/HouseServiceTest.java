@@ -2,7 +2,9 @@ package com.ascending.estate.service;
 
 
 import com.ascending.estate.init.AppInitializer;
+import com.ascending.estate.model.Customer;
 import com.ascending.estate.model.House;
+import com.sun.xml.internal.ws.policy.AssertionSet;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -14,6 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Set;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(SpringRunner.class)
@@ -61,6 +64,11 @@ public class HouseServiceTest{
         House house = houseService.getHouseByName("332 lynchburg va");
         house.getCustomers().forEach(customer -> System.out.println(customer));
         Assert.assertEquals(1,house.getId());
+    }
+    @Test
+    public void viewCustomers(){
+        Set<Customer> customers = houseService.viewCustomers("332 lynchburg va");
+        Assert.assertEquals("amyjames",customers.stream().findFirst().get().getName());
     }
 }
 

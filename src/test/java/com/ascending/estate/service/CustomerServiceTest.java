@@ -1,6 +1,7 @@
 package com.ascending.estate.service;
 
 import com.ascending.estate.init.AppInitializer;
+import com.ascending.estate.model.Agent;
 import com.ascending.estate.model.Customer;
 import com.ascending.estate.model.House;
 import com.ascending.estate.repository.AgentDao;
@@ -87,5 +88,11 @@ public class CustomerServiceTest {
     public void withdrawAgentRelation(){
         boolean isSuccess = customerService.removeAgentRelation("aaronpaul");
         Assert.assertEquals(true,isSuccess);
+    }
+
+    @Test
+    public void viewAgent(){
+        Agent agent = customerService.viewAgent("amyjames");
+        Assert.assertEquals("lukedj", agent.getName());
     }
 }

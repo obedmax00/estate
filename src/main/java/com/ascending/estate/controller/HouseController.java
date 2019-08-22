@@ -1,5 +1,6 @@
 package com.ascending.estate.controller;
 
+import com.ascending.estate.model.Customer;
 import com.ascending.estate.model.House;
 import com.ascending.estate.service.HouseService;
 import org.slf4j.Logger;
@@ -9,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 
 @RestController
@@ -62,5 +64,12 @@ public class HouseController {
         }
         return msg;
     }
+
+    @RequestMapping(value="/view-customers/{address}", method = RequestMethod.GET,
+            produces = {MediaType.APPLICATION_JSON_VALUE})
+    public Set<Customer> viewCustomers(@PathVariable String address){
+        return houseService.viewCustomers(address);
+    }
+
 
 }

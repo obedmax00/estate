@@ -1,6 +1,7 @@
 package com.ascending.estate.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.sun.javafx.beans.IDProperty;
 
 import javax.persistence.*;
@@ -29,6 +30,8 @@ public class Agent {
     @Column(name = "address")
     private String address;
 //    @JsonIgnore
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @OneToMany(mappedBy = "agent", fetch = FetchType.LAZY)
     private Set<Customer> customers;
 
@@ -130,6 +133,12 @@ public class Agent {
     }
 
     public Set<Customer> getCustomers() {
+        try{
+            int size = customers.size();
+        }
+        catch(Exception e){
+            return null;
+        }
         return customers;
     }
 

@@ -86,7 +86,7 @@ public class HouseDaoImpl implements HouseDao{
     public House getHouseByName(String houseAddress) {
         if (houseAddress == null) return null;
 
-        String hql = "FROM House as H left join fetch H.customers where lower(H.address) = :name";
+        String hql = "FROM House H left join fetch H.customers where lower(H.address) = :name";
 
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
             Query<House> query = session.createQuery(hql);

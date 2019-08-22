@@ -4,6 +4,7 @@ import com.ascending.estate.model.Agent;
 import com.ascending.estate.model.Customer;
 import com.ascending.estate.model.House;
 import com.ascending.estate.util.HibernateUtil;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -77,10 +78,12 @@ public class CustomerDaoImpl implements CustomerDao{
 
     @Override
     public List<Customer> getCustomers() {
-        String hql = "FROM Customer C left join fetch C.houses";
+//        String hql = "FROM Customer C left join fetch C.houses";
+        String hql = "FROM Customer";
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
             Query<Customer> query = session.createQuery(hql);
-            return query.list();
+//            return query.list();
+            return query.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
         }
         catch(Exception e){
             logger.error(e.getMessage());
@@ -92,7 +95,7 @@ public class CustomerDaoImpl implements CustomerDao{
     public Customer getCustomerByName(String agentName) {
         if (agentName == null) return null;
 
-        String hql = "FROM Customer as C left join fetch C.houses where lower(C.name) = :name";
+        String hql = "FROM Customer as C left join fetch C.houses left join fetch C.agent where lower(C.name) = :name";
 
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
             Query<Customer> query = session.createQuery(hql);
