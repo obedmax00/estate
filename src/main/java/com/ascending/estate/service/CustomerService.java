@@ -31,5 +31,8 @@ public class CustomerService {
     public Agent viewAgent(String customerName){
         return customerDao.getCustomerByName(customerName).getAgent();
     }
+    public Customer getCustomerByCredentials(String email, String password){
+        return customerDao.getCustomerByCredentials(email, password);
+    }
 
 }

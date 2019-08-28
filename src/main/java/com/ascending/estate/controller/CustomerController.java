@@ -52,9 +52,27 @@ public class CustomerController {
         return msg;
     }
 
-    @RequestMapping(value="",method = RequestMethod.PUT, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public String updateCustomer(@RequestBody Customer customer){
+
+//    @RequestMapping(value="",method = RequestMethod.PUT, consumes = {MediaType.APPLICATION_JSON_VALUE})
+//    public String updateCustomer(@RequestBody Customer customer){
+//        logger.debug("customer:" + customer.toString());
+//        boolean isSuccess = customerService.update(customer);
+//        String msg = "the customer is updated";
+//        if(isSuccess ==false){
+//            msg = "the customer is not updated";
+//        }
+//        return msg;
+//    }
+
+    //add update with name variable so customer can only update their own information
+    @RequestMapping(value="/{name}",method = RequestMethod.PUT, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public String updateCustomer(@RequestBody Customer customer,@PathVariable String name){
         logger.debug("customer:" + customer.toString());
+        if(customerService.getCustomerByName(name).getId() != customer.getId()){
+            return "You cannot change this information";
+        }
+        Agent agent = customerService.getCustomerByName(name).getAgent();
+        customer.setAgent(agent);
         boolean isSuccess = customerService.update(customer);
         String msg = "the customer is updated";
         if(isSuccess ==false){

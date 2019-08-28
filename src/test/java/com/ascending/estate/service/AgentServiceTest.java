@@ -68,4 +68,10 @@ public class AgentServiceTest {
         System.out.println(agent.getCustomers());
         Assert.assertEquals(1,agent.getId());
     }
+
+    @Test
+    public void getAgentByCredentials(){
+        Agent agent = agentService.getAgentByCredentials("lukedj@gmail.com","1234");
+        Assert.assertEquals("lukedj",agent.getName());
+    }
 }

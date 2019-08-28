@@ -35,6 +35,15 @@ public class Agent {
     @OneToMany(mappedBy = "agent", fetch = FetchType.LAZY)
     private Set<Customer> customers;
 
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "users_role",
+            joinColumns = { @JoinColumn(name = "user_id") },
+            inverseJoinColumns = { @JoinColumn(name = "role_id") }
+    )
+    private Set<Role> roles;
+
     public Agent(){}
 
     public Agent(String name,String lastName, String firstName, String email,
@@ -49,10 +58,19 @@ public class Agent {
     }
 
     public String toString(){
-        return "Id: " +getId()+ "Name: " +getName() + "LName: " + getLastName() + "FName: "
-                + getFirstName() + "Address: " + getAddress()+ "Email: " + getEmail()
-                + "PhoneNumber: " + getPhoneNumber() + "Password: " +getPassword();
+        return "Id: " +getId()+ " Name: " +getName() + " LName: " + getLastName() + " FName: "
+                + getFirstName() + " Address: " + getAddress()+ " Email: " + getEmail()
+                + " PhoneNumber: " + getPhoneNumber() + " Password: " +getPassword();
     }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
     public void setId(long id){
         this.id = id;
     }

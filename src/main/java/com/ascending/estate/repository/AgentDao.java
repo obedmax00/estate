@@ -10,4 +10,5 @@ public interface AgentDao {
     boolean delete(String agentName);
     List<Agent> getAgents();
     Agent getAgentByName(String agentName);
+    Agent getAgentByCredentials(String email, String password);
 }

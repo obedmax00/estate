@@ -13,6 +13,8 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -31,6 +33,7 @@ public class CustomerServiceTest {
     private AgentService agentService;
     @Autowired
     private HouseService houseService;
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
     @Test
     public void saveCustomer(){
         Customer customer = new Customer("aaronpaul","aaron","paul","aaronpaul@gmail.com","92 e street fairfax va",
@@ -93,6 +96,7 @@ public class CustomerServiceTest {
     @Test
     public void viewAgent(){
         Agent agent = customerService.viewAgent("amyjames");
+        logger.debug(agent.toString());
         Assert.assertEquals("lukedj", agent.getName());
     }
 }

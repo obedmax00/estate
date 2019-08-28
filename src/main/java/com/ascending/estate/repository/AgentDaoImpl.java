@@ -107,4 +107,16 @@ public class AgentDaoImpl implements AgentDao {
         return null;
     }
     //departments.forEach(dept -> System.out.println(dept));
+
+    @Override
+    public Agent getAgentByCredentials(String email, String password) {
+        String hql = "FROM Agent as a where lower(a.email) = :email and a.password = :password";
+        logger.debug(String.format("User email: %s, password: %s", email, password));
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query<Agent> query = session.createQuery(hql);
+            query.setParameter("email", email.toLowerCase().trim());
+            query.setParameter("password", password);
+            return query.uniqueResult();
+        }
+    }
 }

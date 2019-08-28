@@ -203,4 +203,16 @@ public class CustomerDaoImpl implements CustomerDao{
         return isSuccess;
     }
 
+    @Override
+    public Customer getCustomerByCredentials(String email, String password) {
+        String hql = "FROM Customer as C where lower(C.email) = :email and C.password = :password";
+        logger.debug(String.format("User email: %s, password: %s", email, password));
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query<Customer> query = session.createQuery(hql);
+            query.setParameter("email", email.toLowerCase().trim());
+            query.setParameter("password", password);
+            return query.uniqueResult();
+        }
+    }
+
 }

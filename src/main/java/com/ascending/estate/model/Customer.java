@@ -26,6 +26,8 @@ public class Customer {
     private double salary;
     @Column(name = "phone_number")
     private String phoneNumber;
+    @Column(name = "password")
+    private String password;
 
 //    delete this property
 //    @Column(name = "agent_id")
@@ -153,11 +155,11 @@ public class Customer {
         return this.phoneNumber;
     }
 
-//    public void setAgentId(long agent_id){
-//        this.agentId = agent_id;
-//    }
-//
-//    public long getAgentId(){
-//        return agentId;
-//    }
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

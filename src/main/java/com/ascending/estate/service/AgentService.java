@@ -16,4 +16,7 @@ public class AgentService {
     public boolean delete(String agentName){return agentDao.delete(agentName);};
     public List<Agent> getAgents(){return agentDao.getAgents();};
     public Agent getAgentByName(String agentName){return agentDao.getAgentByName(agentName);};
+    public Agent getAgentByCredentials(String email, String password) {
+        return agentDao.getAgentByCredentials(email, password);
+    }
 }

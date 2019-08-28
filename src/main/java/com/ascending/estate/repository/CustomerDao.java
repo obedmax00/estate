@@ -13,4 +13,5 @@ public interface CustomerDao {
     boolean updateAgentRelation(String customerName, String agentName);
     boolean updateHouseRelation(String customerName, String address);
     boolean removeAgentRelation(String customerName);
+    Customer getCustomerByCredentials(String email, String password);
 }
