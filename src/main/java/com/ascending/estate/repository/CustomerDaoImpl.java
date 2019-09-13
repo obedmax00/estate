@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
@@ -18,7 +19,8 @@ import java.util.Set;
 
 @Repository
 public class CustomerDaoImpl implements CustomerDao{
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    @Autowired
+    private Logger logger;
     @Override
     public boolean save(Customer customer) {
         Transaction transaction = null;

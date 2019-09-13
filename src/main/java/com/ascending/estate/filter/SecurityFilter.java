@@ -1,6 +1,4 @@
-/*
-        * Copyright (C) 2019 Liwei Wang, daveywang@live.com - All Rights Reserved
-        */
+
         package com.ascending.estate.filter;
         import com.ascending.estate.util.JwtUtil;
         import io.jsonwebtoken.Claims;

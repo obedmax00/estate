@@ -1,8 +1,6 @@
 package com.ascending.estate.util;
 
-/*
- * Copyright (C) 2019 Liwei Wang, daveywang@live.com - All Rights Reserved
- */
+
 import com.ascending.estate.model.Customer;
 import com.ascending.estate.model.Role;
 import com.ascending.estate.model.Agent;

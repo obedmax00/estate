@@ -5,9 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.sun.javafx.beans.IDProperty;
 
 import javax.persistence.*;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "agents")
@@ -55,6 +53,9 @@ public class Agent {
         this.phoneNumber = phoneNumber;
         this.password = password;
         this.address = address;
+    }
+    public Agent(String name){
+        this.name = name;
     }
 
     public String toString(){
@@ -140,14 +141,17 @@ public class Agent {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Agent agent = (Agent) o;
-        return id == agent.id &&
-                name.equals(agent.name) &&
-                phoneNumber.equals(agent.phoneNumber);
+        if(!name.equals(agent.name))
+            return false;
+        return true;
+//        return id == agent.id &&
+//                name.equals(agent.name) &&
+//                phoneNumber.equals(agent.phoneNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, phoneNumber);
+        return Objects.hash(name);
     }
 
     public Set<Customer> getCustomers() {
@@ -162,5 +166,15 @@ public class Agent {
 
     public void setCustomers(Set<Customer> customers) {
         this.customers = customers;
+    }
+
+
+    public static void main(String[] args){
+        Agent agent1 = new Agent("ryo");
+        Agent agent2 = new Agent("ryo");
+        Map<Agent,Integer> map = new HashMap<>();
+        map.put(agent1,35);
+        map.put(agent2,36);
+        System.out.println(map.size());
     }
 }

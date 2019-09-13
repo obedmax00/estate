@@ -13,7 +13,8 @@ import java.util.List;
 @RestController
 @RequestMapping(value={"/agents"})
 public class AgentController {
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    @Autowired
+    private Logger logger;
 
     @Autowired
     private AgentService agentService;
